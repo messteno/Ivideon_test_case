@@ -50,8 +50,9 @@ void GetLedColorCommand::process(Led &led)
         response_ = FailedResponse;
     else
     {
-        std::stringstream ss(response_);
+        std::stringstream ss;
         ss << OkResponse << " " << led.getColor();
+        response_ = ss.str();
     }
 }
 

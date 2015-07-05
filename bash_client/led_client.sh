@@ -25,12 +25,22 @@ do
         s|--set)
             setcommand=$OPTARG
             ;;
-        h|\?|*)
+        h|\?)
+            show_help
+            exit 0
+            ;;
+        *)
             show_help
             exit 0
             ;;
     esac
 done
+
+if [ $OPTIND -eq 1 ];
+then
+    show_help
+    exit 0
+fi
 
 infifo=/tmp/l0
 outfifo=/tmp/l1
