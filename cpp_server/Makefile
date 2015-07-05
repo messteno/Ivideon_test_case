@@ -20,6 +20,7 @@ $(APP): $(OBJECT_FILES)
 	@echo " (OK)"
 
 $(BIN_DIR)%.o: %.cpp $(INCLUDE_FILES)
+	@mkdir -p ${BIN_DIR}
 	@echo " (COMPILE)" $< "=>" $@
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
